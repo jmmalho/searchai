@@ -1,280 +1,131 @@
 <!doctype html>
 <html lang="pt-PT">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Johnny Answers</title>
-<meta name="theme-color" content="#ffffff" />
+<meta name="theme-color" content="#ffffff">
 <style>
 :root{
-  --bg:#fff;--text:#1f1f1f;--muted:#5f6368;--muted2:#80868b;--line:#e8eaed;--soft:#f8fafd;
-  --blue:#1a73e8;--blue2:#0b57d0;--green:#188038;--yellow:#fbbc04;--red:#ea4335;
-  --shadow:0 18px 50px rgba(60,64,67,.12);--softShadow:0 7px 24px rgba(60,64,67,.08);
+  --bg:#ffffff;--ink:#17181c;--muted:#5f6368;--soft:#f7f8fb;--line:#e7e9ef;
+  --blue:#2563eb;--blue2:#0b57d0;--violet:#7c3aed;--green:#15803d;--red:#dc2626;
+  --shadow:0 18px 55px rgba(28,33,44,.12);--softShadow:0 8px 26px rgba(28,33,44,.08);
 }
-*{box-sizing:border-box}html,body{height:100%}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}.app{min-height:100%;display:flex;flex-direction:column}
-.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(232,234,237,.72)}
-.top{max-width:1120px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;gap:18px}.brand{display:flex;align-items:center;gap:12px;min-width:max-content}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#111827,#4285f4 52%,#7c3aed);color:white;display:grid;place-items:center;font-weight:900;font-size:15px;letter-spacing:-.08em;box-shadow:0 12px 30px rgba(66,133,244,.24)}.brandName{font-size:25px;font-weight:780;letter-spacing:-.055em}.headerSearch{flex:1;display:none}.compact .headerSearch{display:block}.compactHero{display:none}.compact .compactHero{display:flex}.topActions{display:flex;align-items:center;gap:10px;margin-left:auto}.settingsBtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;color:#3c4043;box-shadow:0 4px 16px rgba(60,64,67,.06)}.keyNudge{display:none;border:1px solid #d2e3fc;background:#f8fbff;color:#174ea6;border-radius:999px;padding:9px 12px;font-size:13px}.noKey .keyNudge{display:block}
-.hero{max-width:980px;margin:0 auto;width:100%;padding:62px 18px 32px;display:flex;flex-direction:column;align-items:center;transition:.2s}.compact .hero{display:none}.heroTag{display:inline-flex;align-items:center;gap:8px;border:1px solid #dfeaff;background:#f7fbff;color:#174ea6;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:680;margin-bottom:18px}.wordmark{font-size:clamp(46px,10vw,82px);font-weight:810;letter-spacing:-.09em;line-height:.9;margin:8px 0 12px}.wordmark span:nth-child(1){color:#4285f4}.wordmark span:nth-child(2){color:#ea4335}.wordmark span:nth-child(3){color:#fbbc04}.wordmark span:nth-child(4){color:#4285f4}.wordmark span:nth-child(5){color:#34a853}.wordmark span:nth-child(6){color:#ea4335}.wordmark span:nth-child(7){color:#4285f4}.heroSub{max-width:680px;text-align:center;color:#5f6368;font-size:17px;line-height:1.45;margin:0 0 28px}.useCases{width:min(900px,100%);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px}.useCase{border:1px solid #e8eaed;background:linear-gradient(180deg,#fff,#fbfcff);border-radius:22px;padding:15px;text-align:left;box-shadow:0 6px 20px rgba(60,64,67,.06);transition:.16s}.useCase:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(60,64,67,.1);border-color:#d8e6ff}.useIcon{width:34px;height:34px;border-radius:12px;background:#eef4ff;display:grid;place-items:center;margin-bottom:10px}.useTitle{font-weight:780;letter-spacing:-.03em;margin-bottom:4px}.useText{font-size:13px;color:#5f6368;line-height:1.35}
-.searchShell{width:min(760px,100%);position:relative}.searchBox{width:100%;display:flex;align-items:flex-end;gap:10px;background:#fff;border:1px solid #dfe1e5;border-radius:32px;box-shadow:0 2px 8px rgba(60,64,67,.13);padding:10px 10px 10px 22px;transition:.16s}.searchBox:hover,.searchBox:focus-within{box-shadow:var(--shadow);border-color:transparent}.compactSearch .searchBox{border-radius:999px;padding:8px 8px 8px 17px;box-shadow:0 1px 6px rgba(60,64,67,.13)}textarea{width:100%;resize:none;border:0;outline:0;background:transparent;min-height:30px;max-height:150px;padding:8px 0;color:var(--text);font-size:17px;line-height:1.45}textarea::placeholder{color:#80868b}.compactSearch textarea{font-size:15px;max-height:76px}.send{min-width:48px;height:48px;border-radius:50%;border:0;background:var(--blue);color:white;font-weight:800;display:grid;place-items:center;box-shadow:0 8px 24px rgba(26,115,232,.26);transition:.16s}.send:disabled{background:#d5dbe3;box-shadow:none}.compactSearch .send{min-width:40px;height:40px}.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}.promptChip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;color:#3c4043;font-size:14px;box-shadow:0 4px 14px rgba(60,64,67,.05);transition:.16s}.promptChip:hover{transform:translateY(-1px);border-color:#d8e6ff;background:#fbfdff}
-.main{max-width:1120px;width:100%;margin:0 auto;padding:8px 18px 70px;display:none}.main.show{display:block}.queryLine{color:var(--muted);font-size:14px;margin:14px 0 18px;padding-left:4px}.grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;align-items:start}.left,.right{display:flex;flex-direction:column;gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--softShadow);overflow:hidden}.answerCard{border-radius:26px}.cardHead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}.cardTitle{font-weight:780;letter-spacing:-.035em;font-size:18px}.cardSub{font-size:13px;color:var(--muted);margin-top:2px}.cardBody{padding:18px 20px;font-size:16px;line-height:1.68}.summary{font-size:18px;line-height:1.62;white-space:pre-wrap}.answerText{white-space:pre-wrap}.badgeRow{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.badge{border:1px solid var(--line);background:var(--soft);color:var(--muted);border-radius:999px;padding:7px 10px;font-size:12px}.aiBadge{background:#eef4ff;border-color:#d8e6ff;color:#174ea6}.list{margin:0;padding-left:20px}.list li{margin:8px 0}.factGrid{display:grid;grid-template-columns:1fr;gap:10px}.fact{padding:12px 13px;border:1px solid var(--line);border-radius:16px;background:#fbfcff}.fact b{display:block;font-size:13px;color:#3c4043;margin-bottom:4px}.fact span{color:var(--muted);font-size:14px}.miniCards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mini{border:1px solid var(--line);border-radius:18px;padding:14px;background:#fff}.miniTitle{font-weight:740;margin-bottom:6px}.miniText{font-size:14px;color:var(--muted);line-height:1.45}.resultItem{padding:16px 18px;border-bottom:1px solid var(--line)}.resultItem:last-child{border-bottom:0}.resultTitle{font-size:17px;font-weight:700;color:#1a0dab;margin-bottom:4px}.resultUrl{font-size:13px;color:var(--green);margin-bottom:6px}.resultSnippet{color:#4d5156;line-height:1.45}.contextBar{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 16px}.contextPill{display:inline-flex;align-items:center;gap:7px;border:1px solid #dfe3ea;background:#f8fbff;color:#3c4043;border-radius:999px;padding:8px 11px;font-size:12px;font-weight:650}.heroMedia{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:stretch}.heroImage{width:100%;height:100%;min-height:120px;object-fit:cover;border-radius:18px;background:#eef2f7}.heroMeta{display:flex;flex-direction:column;justify-content:center}.heroLabel{font-size:12px;font-weight:700;color:#174ea6;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}.heroDesc{font-size:14px;color:var(--muted);line-height:1.45}.panelList{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.panelTag{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;color:#4d5156}.tabs{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:12px 14px;background:#fbfcff}.tabBtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;font-size:13px;font-weight:720;color:#3c4043}.tabBtn.active{background:#202124;color:#fff;border-color:#202124}.tabPanel{display:none}.tabPanel.active{display:block}.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.galleryImg{width:100%;aspect-ratio:1.18/1;object-fit:cover;border-radius:17px;background:#eef2f7;border:1px solid var(--line)}.galleryHero{width:100%;max-height:260px;object-fit:cover;border-radius:20px;background:#eef2f7;border:1px solid var(--line)}.discoverGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.discoverTile{border:1px solid var(--line);background:linear-gradient(180deg,#fff,#fbfcff);border-radius:18px;padding:14px;min-height:108px;box-shadow:0 4px 14px rgba(60,64,67,.04)}.discoverKicker{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#174ea6;font-weight:800;margin-bottom:7px}.discoverTitle{font-weight:780;letter-spacing:-.025em;margin-bottom:6px}.discoverText{font-size:13px;color:#5f6368;line-height:1.45}.inlineActions{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.miniAction{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-size:12px;font-weight:700;color:#3c4043}.loader{display:flex;gap:7px;align-items:center;color:var(--muted)}.dot{width:7px;height:7px;border-radius:50%;background:#9aa0a6;animation:b 1.1s infinite}.dot:nth-child(2){animation-delay:.15s}.dot:nth-child(3){animation-delay:.3s}@keyframes b{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-4px)}}.skeleton{padding:18px 20px}.sk{height:13px;border-radius:999px;background:linear-gradient(90deg,#f1f3f4,#e8eaed,#f1f3f4);background-size:200% 100%;animation:shimmer 1.2s infinite;margin:12px 0}.sk.w1{width:94%}.sk.w2{width:72%}.sk.w3{width:86%}.sk.big{height:78px;border-radius:18px}@keyframes shimmer{to{background-position:-200% 0}}
-.drawer{position:fixed;inset:0;z-index:60;display:none}.drawer.show{display:block}.shade{position:absolute;inset:0;background:rgba(32,33,36,.28);backdrop-filter:blur(4px)}.panel{position:absolute;right:0;top:0;height:100%;width:min(430px,92vw);background:white;box-shadow:-30px 0 90px rgba(32,33,36,.18);padding:22px;display:flex;flex-direction:column;gap:16px;animation:slide .18s ease-out}@keyframes slide{from{transform:translateX(40px);opacity:.5}to{transform:none;opacity:1}}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.close{border:0;background:var(--soft);border-radius:50%;width:38px;height:38px}.field{display:flex;flex-direction:column;gap:8px}.field label{font-weight:730;font-size:14px}.field input{border:1px solid var(--line);border-radius:15px;padding:13px 14px;outline:0;background:var(--soft)}.primary{border:0;background:#202124;color:white;border-radius:16px;padding:13px 16px;font-weight:740}.ghost{border:1px solid var(--line);background:white;border-radius:16px;padding:13px 16px;font-weight:650}.notice{background:#f8fbff;border:1px solid #dfeaff;color:#244a85;border-radius:18px;padding:13px 14px;font-size:13px;line-height:1.45}.history{display:flex;flex-direction:column;gap:8px;max-height:220px;overflow:auto}.hist{border:1px solid var(--line);background:var(--soft);border-radius:14px;padding:10px 12px;text-align:left;color:#2b3036}
-.errorActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.errorActions button{border-radius:16px;padding:12px 15px;font-weight:740}.retryBtn{border:0;background:#1a73e8;color:white}.backBtn{border:1px solid var(--line);background:white;color:#202124}
-@media(max-width:860px){.grid{grid-template-columns:1fr}.right{display:grid;grid-template-columns:1fr;gap:14px}.headerSearch{display:none!important}.brandName{font-size:22px}.top{gap:10px}.hero{padding-top:36px}.heroSub{font-size:15px}.useCases{grid-template-columns:repeat(2,minmax(0,1fr))}.main{padding-top:0}.cardHead{padding:16px}.cardBody{padding:16px}.summary{font-size:17px}.miniCards{grid-template-columns:1fr}.keyNudge{display:none}.heroMedia{grid-template-columns:96px 1fr}.noKey .settingsBtn{box-shadow:0 0 0 6px #f1f6ff}} @media(max-width:520px){.useCases{grid-template-columns:1fr}.wordmark{font-size:54px}.logo{width:39px;height:39px}.brandName{font-size:20px}.heroMedia{grid-template-columns:1fr}.heroImage{min-height:180px}.gallery,.discoverGrid{grid-template-columns:1fr}} 
+*{box-sizing:border-box}html,body{min-height:100%}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 30% -20%,#eef4ff 0,#fff 35%,#fff 100%)}button,input,textarea{font:inherit}button{cursor:pointer}
+.app{min-height:100vh;display:flex;flex-direction:column}.topbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(231,233,239,.78)}.top{max-width:1160px;margin:0 auto;padding:14px 18px;display:flex;gap:14px;align-items:center}
+.logo{width:42px;height:42px;border-radius:16px;color:#fff;background:linear-gradient(135deg,#111827,#2563eb 55%,#7c3aed);display:grid;place-items:center;font-weight:900;letter-spacing:-.09em;box-shadow:0 14px 32px rgba(37,99,235,.24)}.brand{display:flex;gap:10px;align-items:center;min-width:max-content}.brand h1{font-size:24px;line-height:1;margin:0;letter-spacing:-.055em}.brand small{display:block;color:var(--muted);font-size:12px;margin-top:3px}.topSearch{flex:1;display:none}.compact .topSearch{display:block}.settings{margin-left:auto;width:43px;height:43px;border-radius:999px;border:1px solid var(--line);background:#fff;box-shadow:0 4px 18px rgba(28,33,44,.06);display:grid;place-items:center}.keyHint{display:none;border:1px solid #d8e6ff;background:#f8fbff;color:#174ea6;padding:8px 12px;border-radius:999px;font-size:13px}.noKey .keyHint{display:inline-flex}
+.hero{max-width:980px;margin:0 auto;width:100%;padding:70px 18px 34px;text-align:center}.compact .hero{display:none}.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #dfe7ff;background:#f8fbff;color:#174ea6;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:750}.word{font-size:clamp(48px,10vw,84px);font-weight:850;letter-spacing:-.1em;margin:18px 0 12px;line-height:.9}.word span:nth-child(1){color:#4285f4}.word span:nth-child(2){color:#ea4335}.word span:nth-child(3){color:#fbbc04}.word span:nth-child(4){color:#4285f4}.word span:nth-child(5){color:#34a853}.word span:nth-child(6){color:#ea4335}.hero p{max-width:720px;margin:0 auto 28px;color:var(--muted);font-size:17px;line-height:1.5}
+.searchWrap{width:min(790px,100%);margin:0 auto}.search{display:flex;align-items:flex-end;gap:10px;background:#fff;border:1px solid #dfe1e5;border-radius:34px;box-shadow:0 3px 10px rgba(60,64,67,.13);padding:10px 10px 10px 22px;transition:.15s}.search:focus-within,.search:hover{border-color:transparent;box-shadow:var(--shadow)}.compactSearch .search{border-radius:999px;padding:8px 8px 8px 16px;box-shadow:0 2px 8px rgba(60,64,67,.12)}textarea{width:100%;border:0;outline:0;background:transparent;resize:none;min-height:32px;max-height:150px;padding:8px 0;font-size:17px;line-height:1.45}.compactSearch textarea{font-size:15px;max-height:70px}.send{width:48px;min-width:48px;height:48px;border-radius:50%;border:0;background:var(--blue);color:#fff;font-weight:900;box-shadow:0 8px 24px rgba(37,99,235,.28)}.compactSearch .send{width:40px;min-width:40px;height:40px}.send:disabled{background:#cbd5e1;box-shadow:none}.chips{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;color:#343842;font-size:14px;box-shadow:0 4px 14px rgba(28,33,44,.05)}
+.useGrid{width:min(900px,100%);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:26px auto 0}.use{border:1px solid var(--line);background:linear-gradient(180deg,#fff,#fbfcff);border-radius:22px;padding:15px;text-align:left;box-shadow:var(--softShadow);transition:.16s}.use:hover{transform:translateY(-2px);border-color:#d7e3ff}.use b{display:block;margin-bottom:5px;letter-spacing:-.02em}.use span{font-size:13px;line-height:1.35;color:var(--muted)}
+.main{display:none;max-width:1160px;width:100%;margin:0 auto;padding:12px 18px 72px}.main.show{display:block}.queryLine{font-size:13px;color:var(--muted);margin:12px 2px 16px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:18px;align-items:start}.left,.right{display:flex;flex-direction:column;gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--softShadow);overflow:hidden}.head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}.title{font-size:18px;font-weight:800;letter-spacing:-.035em}.sub{font-size:13px;color:var(--muted);margin-top:2px}.body{padding:18px 20px;line-height:1.68}.answer{font-size:16px;white-space:normal}.answer h2{font-size:20px;letter-spacing:-.045em;margin:18px 0 8px}.answer h3{font-size:17px;letter-spacing:-.03em;margin:16px 0 6px}.answer p{margin:10px 0}.answer ul,.answer ol{padding-left:22px}.answer li{margin:7px 0}.answer code{background:#f1f3f7;border:1px solid #e4e7ee;border-radius:7px;padding:1px 5px}.answer pre{background:#0f172a;color:#e5e7eb;border-radius:16px;padding:14px;overflow:auto}.liveCursor::after{content:"";display:inline-block;width:7px;height:1.15em;margin-left:3px;background:#2563eb;vertical-align:-.18em;animation:blink .9s infinite}@keyframes blink{50%{opacity:0}}
+.context{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.tag{display:inline-flex;align-items:center;gap:7px;background:#f8fbff;border:1px solid #dfe7ff;color:#174ea6;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:750}.status{display:flex;gap:7px;align-items:center;color:var(--muted);font-size:13px}.dot{width:7px;height:7px;border-radius:50%;background:#9aa0a6;animation:b 1.1s infinite}.dot:nth-child(2){animation-delay:.16s}.dot:nth-child(3){animation-delay:.32s}@keyframes b{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-4px)}}
+.tabs{display:flex;gap:8px;padding:10px;border-bottom:1px solid var(--line);overflow:auto}.tab{border:0;background:#f3f5f9;color:#3f4652;border-radius:999px;padding:9px 12px;font-size:13px;font-weight:750;white-space:nowrap}.tab.active{background:#111827;color:#fff}.tabPane{display:none}.tabPane.active{display:block}.factGrid{display:grid;gap:10px}.fact{border:1px solid var(--line);background:#fbfcff;border-radius:16px;padding:12px}.fact b{display:block;font-size:13px;margin-bottom:4px}.fact span{font-size:14px;color:var(--muted)}.linkList{display:grid;gap:10px}.link{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px 14px;text-decoration:none;color:inherit}.link:hover{border-color:#c7d7ff;background:#fbfdff}.link strong{display:block;color:#1a0dab;font-size:15px}.link span{display:block;color:var(--muted);font-size:12px;margin-top:2px}.arrow{color:var(--blue);font-weight:900}.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.imgCard{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#f1f4f9;min-height:120px}.imgCard img{display:block;width:100%;height:145px;object-fit:cover}.imgCard div{padding:9px 10px;font-size:12px;color:#4d5562;background:#fff}.discover{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.discover button{border:1px solid var(--line);background:#fff;border-radius:16px;text-align:left;padding:12px;color:#343842}.discover button:hover{background:#fbfdff;border-color:#c7d7ff}.mini{font-size:13px;color:var(--muted);line-height:1.45}.errorActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.primary,.secondary{border-radius:15px;padding:12px 14px;font-weight:800}.primary{border:0;background:#2563eb;color:#fff}.secondary{border:1px solid var(--line);background:#fff;color:#111827}
+.drawer{display:none;position:fixed;inset:0;z-index:80}.drawer.show{display:block}.shade{position:absolute;inset:0;background:rgba(17,24,39,.28);backdrop-filter:blur(5px)}.panel{position:absolute;right:0;top:0;height:100%;width:min(430px,92vw);background:#fff;padding:22px;box-shadow:-30px 0 90px rgba(17,24,39,.2);display:flex;flex-direction:column;gap:16px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.close{border:0;border-radius:50%;width:38px;height:38px;background:#f3f5f9}.field{display:flex;flex-direction:column;gap:8px}.field label{font-weight:800;font-size:14px}.field input{border:1px solid var(--line);background:#f8fafc;border-radius:15px;padding:13px;outline:0}.notice{border:1px solid #dfe7ff;background:#f8fbff;color:#244a85;border-radius:18px;padding:13px;font-size:13px;line-height:1.45}.history{display:grid;gap:8px;max-height:220px;overflow:auto}.hist{border:1px solid var(--line);background:#f8fafc;border-radius:14px;text-align:left;padding:10px;color:#343842}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.topSearch{display:none!important}.useGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.right{display:grid;grid-template-columns:1fr}.keyHint{display:none}.noKey .settings{box-shadow:0 0 0 6px #eef4ff}.brand small{display:none}}@media(max-width:560px){.hero{padding-top:40px}.word{font-size:54px}.useGrid{grid-template-columns:1fr}.gallery,.discover{grid-template-columns:1fr}.layout{gap:12px}.head,.body{padding:16px}.brand h1{font-size:20px}}
 </style>
 </head>
 <body class="noKey">
-<div class="app" id="app">
-<header class="header">
-  <div class="top">
-    <div class="brand"><div class="logo">JA</div><div class="brandName">Johnny Answers</div></div>
-    <div class="headerSearch compactSearch"><form class="searchBox" id="topForm"><textarea id="topQuery" rows="1" placeholder="Pesquisar outra coisa..."></textarea><button class="send" type="submit">➜</button></form></div>
-    <div class="topActions"><button class="keyNudge" id="nudgeBtn">Adicionar chave</button><button class="settingsBtn" id="settingsBtn" title="Settings">⚙</button></div>
-  </div>
-</header>
-<section class="hero" id="hero">
-  <div class="heroTag">✦ Answer engine pessoal</div>
-  <div class="wordmark"><span>A</span><span>n</span><span>s</span><span>w</span><span>e</span><span>r</span><span>s</span></div>
-  <p class="heroSub">Pesquisa, compara, resolve e cria. O Johnny Answers transforma qualquer pergunta em cartões bonitos e úteis, sem mostrar o motor por trás.</p>
-  <div class="searchShell"><form class="searchBox" id="searchForm"><textarea id="query" rows="1" placeholder="Pergunta qualquer coisa..."></textarea><button class="send" id="sendBtn" type="submit">➜</button></form></div>
-  <div class="chips" id="chips"><button class="promptChip">Faz ranking de telemóveis até 300€</button><button class="promptChip">Corrige este erro de código</button><button class="promptChip">Cria ideias para app Android</button><button class="promptChip">Resume isto como estudante</button></div>
-  <div class="useCases">
-    <button class="useCase" data-prompt="Ajuda-me a estudar este tema de forma simples"><div class="useIcon">📚</div><div class="useTitle">Estudar</div><div class="useText">Resumos, explicações, exercícios e planos.</div></button>
-    <button class="useCase" data-prompt="Analisa este produto e diz se vale a pena comprar"><div class="useIcon">🛒</div><div class="useTitle">Comprar</div><div class="useText">Prós, contras, ranking e decisão final.</div></button>
-    <button class="useCase" data-prompt="Ajuda-me a resolver este erro de programação"><div class="useIcon">💻</div><div class="useTitle">Código</div><div class="useText">Erro, causa, correção e exemplo limpo.</div></button>
-    <button class="useCase" data-prompt="Cria uma ideia de anúncio visual para este produto"><div class="useIcon">✨</div><div class="useTitle">Criar</div><div class="useText">Ideias, anúncios, textos e estrutura visual.</div></button>
-  </div>
-</section>
-<main class="main" id="main">
-  <div class="queryLine" id="queryLine"></div>
-  <div class="grid">
-    <section class="left" id="leftCol"></section>
-    <aside class="right" id="rightCol"></aside>
-  </div>
-</main>
+<div class="app">
+  <header class="topbar">
+    <div class="top">
+      <div class="brand"><div class="logo">JA</div><div><h1>Johnny Answers</h1><small>answer engine visual</small></div></div>
+      <div class="topSearch">
+        <form id="topForm" class="searchWrap compactSearch"><div class="search"><textarea id="topQuery" rows="1" placeholder="Pergunta outra coisa..."></textarea><button class="send">↗</button></div></form>
+      </div>
+      <button id="keyHint" class="keyHint">Adicionar chave</button>
+      <button id="settingsBtn" class="settings">⚙️</button>
+    </div>
+  </header>
+  <section class="hero">
+    <span class="pill">✨ Pesquisa que responde, mostra e liga</span>
+    <div class="word"><span>J</span><span>o</span><span>h</span><span>n</span><span>n</span><span>y</span></div>
+    <p>Não é só “perguntar ao Google”. O Johnny Answers cria uma resposta ao vivo, puxa imagens contextuais quando dá, organiza por intenção e abre fontes reais sem inventar sites.</p>
+    <form id="searchForm" class="searchWrap"><div class="search"><textarea id="query" rows="1" placeholder="Pesquisa algo: ATEEZ, melhores telemóveis até 300€, erro em Kotlin..."></textarea><button class="send">↗</button></div></form>
+    <div class="chips">
+      <button class="chip" type="button">ATEEZ membros e estilo</button>
+      <button class="chip" type="button">Melhores telemóveis até 300€ hoje</button>
+      <button class="chip" type="button">Explica Dijkstra para teste</button>
+      <button class="chip" type="button">Ideias de branding para app IA</button>
+    </div>
+    <div class="useGrid">
+      <button class="use" data-prompt="Resumo visual de um grupo de K-pop"><b>K-pop visual</b><span>Perfil, membros, eras, imagens e links úteis.</span></button>
+      <button class="use" data-prompt="Ajuda-me a escolher um produto com prós e contras"><b>Compras</b><span>Decisão final, critérios e links para pesquisar.</span></button>
+      <button class="use" data-prompt="Corrige este erro de código e explica rápido"><b>Código</b><span>Erro, causa, correção e exemplo limpo.</span></button>
+      <button class="use" data-prompt="Cria uma ideia de design premium"><b>Criação</b><span>Conceito, layout, copy e variações.</span></button>
+    </div>
+  </section>
+  <main id="main" class="main">
+    <div id="queryLine" class="queryLine"></div>
+    <div class="layout">
+      <section class="left" id="left"></section>
+      <aside class="right" id="right"></aside>
+    </div>
+  </main>
 </div>
-<div class="drawer" id="drawer"><div class="shade" id="shade"></div><aside class="panel">
-  <div class="row"><div><h2 style="margin:0;letter-spacing:-.04em">Settings</h2><div style="color:#5f6368;font-size:13px;margin-top:2px">A chave fica só neste browser.</div></div><button class="close" id="closeBtn">×</button></div>
-  <div class="notice">Modo recomendado: usa uma chave Gemini API grátis como motor principal. O OpenRouter fica só como fallback opcional. A app continua estática e sem Netlify Functions.</div>
-  <div class="notice" id="techError" style="display:none;background:#fff7f7;border-color:#ffdede;color:#7a1d1d"></div>
-  <div class="field"><label>Gemini API Key — recomendado</label><input id="geminiKey" type="password" placeholder="AIza..." autocomplete="off" /></div>
-  <div class="field"><label>OpenRouter API Key — fallback opcional</label><input id="apiKey" type="password" placeholder="sk-or-v1-..." autocomplete="off" /></div>
-  <button class="primary" id="saveKey">Guardar chaves</button><button class="ghost" id="deleteKey">Apagar chaves</button>
-  <div class="field"><label>Histórico local</label><div class="history" id="history"></div></div>
-</aside></div>
+
+<div id="drawer" class="drawer">
+  <div id="shade" class="shade"></div>
+  <div class="panel">
+    <div class="row"><div><h2 style="margin:0;letter-spacing:-.04em">Settings</h2><div class="mini">As chaves ficam só no browser.</div></div><button id="closeBtn" class="close">×</button></div>
+    <div class="notice">Recomendado: Gemini API Key para streaming e estabilidade. OpenRouter fica como fallback opcional.</div>
+    <div class="field"><label>Gemini API Key</label><input id="geminiKey" placeholder="AIza..."></div>
+    <div class="field"><label>OpenRouter API Key opcional</label><input id="openRouterKey" placeholder="sk-or-v1-..."></div>
+    <button id="saveKey" class="primary">Guardar</button>
+    <button id="deleteKey" class="secondary">Apagar chaves</button>
+    <div id="techError" class="notice" style="display:none"></div>
+    <div>
+      <b>Histórico</b>
+      <div id="history" class="history" style="margin-top:10px"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-const GEMINI_MODELS=[
- {id:'gemini-3.5-flash',name:'Gemini Flash'},
- {id:'gemini-3.1-flash-latest',name:'Gemini Flash Latest'},
- {id:'gemini-2.5-flash',name:'Gemini 2.5 Flash'},
- {id:'gemini-2.0-flash',name:'Gemini 2.0 Flash'}
-];
-const PREFERRED_MODELS=[
- {id:'qwen/qwen3-next-80b-a3b-instruct:free',name:'Qwen3 Next'},
- {id:'meta-llama/llama-3.3-70b-instruct:free',name:'Llama 3.3 70B'},
- {id:'qwen/qwen3-coder:free',name:'Qwen3 Coder'},
- {id:'deepseek/deepseek-chat-v3-0324:free',name:'DeepSeek V3'},
- {id:'google/gemma-4-26b-it:free',name:'Gemma 4 26B'},
- {id:'meta-llama/llama-3.2-3b-instruct:free',name:'Llama 3.2 3B'}
-];
-const MAX_GEMINI_ATTEMPTS=2;
-const MAX_OPENROUTER_ATTEMPTS=2;
-let discoveredModelsCache=null;
-function isFreeModelLimit(msg){return /free-models-per-day|rate limit exceeded|free model requests per day|add 10 credits|daily limit|quota|resource_exhausted|exceeded your current quota/i.test(String(msg||''))}
-function isProviderBusy(msg){return /provider returned error|temporarily unavailable|overloaded|timeout|aborted|capacity|fetch failed|503|500|deadline/i.test(String(msg||''))}
-async function getOpenRouterModelChain(){
- if(discoveredModelsCache)return discoveredModelsCache;
- const fallback=PREFERRED_MODELS;
- try{
-  const r=await fetch('https://openrouter.ai/api/v1/models',{cache:'no-store'});
-  const j=await r.json();
-  const data=Array.isArray(j?.data)?j.data:[];
-  const free=data.filter(m=>{
-   const id=String(m.id||'');
-   const p=m.pricing||{};
-   const prompt=Number(p.prompt||0), completion=Number(p.completion||0);
-   const name=String(m.name||id).toLowerCase();
-   return (id.endsWith(':free')||(!prompt&&!completion)) && !/embed|moderation|rerank|whisper|tts|image|vision only|audio|omni/.test(id.toLowerCase()+name);
-  }).map(m=>({id:m.id,name:m.name||m.id,context_length:m.context_length||0}));
-  const byId=new Map(free.map(m=>[m.id,m]));
-  const chosen=[];
-  for(const pref of PREFERRED_MODELS){ if(byId.has(pref.id)) chosen.push({...pref,id:pref.id}); }
-  const extras=free
-   .filter(m=>!chosen.some(c=>c.id===m.id))
-   .filter(m=>/qwen|llama|deepseek|mistral|gemma|phi|moonshot|glm/i.test(m.id+' '+m.name))
-   .sort((a,b)=>(b.context_length||0)-(a.context_length||0))
-   .slice(0,4);
-  discoveredModelsCache=[...chosen,...extras].slice(0,6);
-  if(!discoveredModelsCache.length) discoveredModelsCache=fallback;
- }catch{discoveredModelsCache=fallback}
- return discoveredModelsCache;
-}
 const $=s=>document.querySelector(s);
-const geminiKeyName='johnny_gemini_key_v1', keyName='johnny_openrouter_key_v1',histName='johnny_answers_history_v1',cacheName='johnny_answers_cache_v1';
-const app=$('#app'),body=document.body,main=$('#main'),left=$('#leftCol'),right=$('#rightCol'),queryLine=$('#queryLine');
-function getGeminiKey(){return localStorage.getItem(geminiKeyName)||''}
-function getKey(){return localStorage.getItem(keyName)||''}
-function updateKey(){
- const hasGemini=!!getGeminiKey(), hasOpenRouter=!!getKey();
- body.classList.toggle('noKey',!hasGemini&&!hasOpenRouter);
- $('#geminiKey').value=hasGemini?'••••••••••••••••':'';
- $('#apiKey').value=hasOpenRouter?'••••••••••••••••':'';
-}
-function openSettings(){const er=localStorage.getItem('johnny_last_error')||'';const box=$('#techError');if(er){box.style.display='block';box.textContent='Erro técnico: '+er.slice(0,900)}else box.style.display='none';$('#drawer').classList.add('show');setTimeout(()=>($('#geminiKey').value.includes('•')?$('#apiKey'):$('#geminiKey')).focus(),60)}
-function closeSettings(){$('#drawer').classList.remove('show')}
-window.openSettings=openSettings;
-$('#settingsBtn').onclick=openSettings;$('#nudgeBtn').onclick=openSettings;$('#shade').onclick=closeSettings;$('#closeBtn').onclick=closeSettings;
-$('#saveKey').onclick=()=>{
- const g=$('#geminiKey').value.trim();
- const o=$('#apiKey').value.trim();
- if(g&&!g.includes('•'))localStorage.setItem(geminiKeyName,g);
- if(o&&!o.includes('•'))localStorage.setItem(keyName,o);
- updateKey();closeSettings();
-};
-$('#deleteKey').onclick=()=>{localStorage.removeItem(geminiKeyName);localStorage.removeItem(keyName);updateKey();renderHistory()};
-function escapeHtml(s=''){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
-function autoGrow(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,150)+'px'}
-['query','topQuery'].forEach(id=>$('#'+id).addEventListener('input',e=>autoGrow(e.target)));
-document.querySelectorAll('.promptChip').forEach(b=>b.onclick=()=>{query.value=b.textContent;autoGrow(query);query.focus()});
-document.querySelectorAll('.useCase').forEach(b=>b.onclick=()=>{query.value=b.dataset.prompt||b.textContent;autoGrow(query);query.focus()});
-function getTodayLong(){return new Date().toLocaleDateString('pt-PT',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}
-function detectIntent(q=''){const s=q.toLowerCase();if(/kpop|k-pop|grupo|banda|idol|membros|member|discografia|comeback/.test(s))return 'kpop';if(/quem e|quem é|biografia|idade|altura|net worth|cantor|cantora|ator|atriz|artista/.test(s))return 'person';if(/telem[oó]vel|smartphone|comprar|melhor|vs\b|comparar|pre[çc]o|review|produto|port[áa]til|tv|tablet/.test(s))return 'product';if(/c[oó]digo|erro|bug|java|javascript|python|html|css|kotlin|android studio|compile|api/.test(s))return 'code';if(/resumo|explica|explicar|estudar|mat[eé]ria|teste|exame|ficha|exerc[ií]cio/.test(s))return 'study';if(/pele|acne|skincare|sa[úu]de|treino|gin[aá]sio|prote[ií]na|dieta/.test(s))return 'health';if(/viagem|roteiro|hotel|coreia|lisboa|porto|praia|ir para|voo/.test(s))return 'travel';if(/design|an[úu]ncio|branding|logo|copy|post|site|ui|ux/.test(s))return 'design';if(/not[ií]cias|hoje|atual|atualidade|2026|2025/.test(s))return 'current';return 'general'}
-function niceIntentName(i){return ({kpop:'K-pop / música',person:'Pessoa / artista',product:'Produto / compra',code:'Código',study:'Estudo',health:'Saúde / fitness',travel:'Viagem',design:'Design / criação',current:'Atualidade',general:'Pesquisa geral'})[i]||'Pesquisa'}
-function extractEntityHint(q=''){return q.replace(/^(quem e|quem é|fala me de|fala-me de|sobre|informa[cç][aã]o sobre|informa[cç][oõ]es sobre|quero saber sobre)\s+/i,'').trim()}
-async function fetchWikiPreview(search){const endpoints=['https://pt.wikipedia.org/w/api.php','https://en.wikipedia.org/w/api.php'];for(const base of endpoints){try{const url=base+'?origin=*&action=query&generator=search&gsrsearch='+encodeURIComponent(search)+'&gsrlimit=1&prop=pageimages|extracts|info&inprop=url&piprop=thumbnail&pithumbsize=900&exintro=1&explaintext=1&exsentences=2&format=json';const res=await fetch(url);const data=await res.json();const pages=data?.query?.pages?Object.values(data.query.pages):[];if(pages.length){const page=pages[0];return {title:page.title||search,image:page.thumbnail?.source||'',description:(page.extract||'').trim(),url:page.fullurl||''}}}catch(e){}}
- return null}
-async function getEntityPreview(query,data){const intent=detectIntent(query);if(!['kpop','person','travel','product'].includes(intent)&&!data?.entity)return null;const seed=data?.entity||extractEntityHint(query)||data?.title||query;return await fetchWikiPreview(seed)}
-function sidebarLabels(intent){return ({kpop:['Factos rápidos','Explorar a seguir','Perfil visual'],person:['Resumo biográfico','Explorar a seguir','Perfil visual'],product:['Decisão rápida','Comparar a seguir','Escolha visual'],code:['Diagnóstico rápido','Pesquisar a seguir','Contexto'],study:['Pontos-chave','Treinar a seguir','Contexto'],health:['Sinais rápidos','Ver também','Contexto'],travel:['Plano rápido','Explorar a seguir','Vista'],design:['Direção rápida','Explorar a seguir','Mood'],current:['Agora mesmo','Explorar a seguir','Contexto'],general:['Resumo rápido','Pesquisar a seguir','Detalhes']})[intent]||['Resumo rápido','Pesquisar a seguir','Detalhes']}
-function addHistory(q){try{let h=JSON.parse(localStorage.getItem(histName)||'[]');h=[q,...h.filter(x=>x!==q)].slice(0,10);localStorage.setItem(histName,JSON.stringify(h));renderHistory()}catch{}}
-function renderHistory(){let h=[];try{h=JSON.parse(localStorage.getItem(histName)||'[]')}catch{}$('#history').innerHTML=h.length?h.map(x=>`<button class="hist">${escapeHtml(x)}</button>`).join(''):'<div style="color:#5f6368;font-size:13px">Sem pesquisas ainda.</div>';document.querySelectorAll('.hist').forEach(b=>b.onclick=()=>{query.value=b.textContent;$('#topQuery').value=b.textContent;closeSettings();runSearch(b.textContent)})}
-function cacheKey(q){return 'q:'+q.trim().toLowerCase()}function readCache(q){try{return JSON.parse(localStorage.getItem(cacheName)||'{}')[cacheKey(q)]}catch{return null}}function writeCache(q,data){try{const c=JSON.parse(localStorage.getItem(cacheName)||'{}');c[cacheKey(q)]={data,t:Date.now()};localStorage.setItem(cacheName,JSON.stringify(c))}catch{}}
-let lastQuery='';let lastGood=null;function saveGood(){lastGood={left:left.innerHTML,right:right.innerHTML,query:queryLine.textContent,top:$('#topQuery').value,bodyCompact:document.body.classList.contains('compact'),mainShow:main.classList.contains('show')}}function goBack(){if(!lastGood){document.body.classList.remove('compact');main.classList.remove('show');return}left.innerHTML=lastGood.left;right.innerHTML=lastGood.right;queryLine.textContent=lastGood.query;$('#topQuery').value=lastGood.top;if(lastGood.bodyCompact)document.body.classList.add('compact');if(lastGood.mainShow)main.classList.add('show')}function retryLast(){if(lastQuery)runSearch(lastQuery,true)}window.goBack=goBack;window.retryLast=retryLast;
-function startUI(q){const intent=detectIntent(q);document.body.classList.add('compact');main.classList.add('show');queryLine.textContent='Pesquisa: '+q;$('#topQuery').value=q;left.innerHTML=`<div class="contextBar"><span class="contextPill">🧠 ${escapeHtml(niceIntentName(intent))}</span><span class="contextPill">📅 ${escapeHtml(getTodayLong())}</span></div><article class="card answerCard"><div class="cardHead"><div><div class="cardTitle">Resposta</div><div class="cardSub">A organizar uma experiência adaptada à tua pesquisa...</div></div><div class="loader"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div><div class="skeleton"><div class="sk big"></div><div class="sk w1"></div><div class="sk w2"></div><div class="sk w3"></div></div></article>`;right.innerHTML=`<article class="card"><div class="cardHead"><div><div class="cardTitle">A preparar o layout</div><div class="cardSub">${escapeHtml(niceIntentName(intent))}</div></div></div><div class="cardBody"><div class="factGrid"><div class="fact"><b>Data</b><span>${escapeHtml(getTodayLong())}</span></div><div class="fact"><b>Modo</b><span>Layout variável por intenção</span></div><div class="fact"><b>Visual</b><span>Cards, factos e extras conforme a pesquisa</span></div></div></div></article>`;window.scrollTo({top:0,behavior:'smooth'})}
-function cleanModelText(s){return String(s||'').trim().replace(/^```json\s*/i,'').replace(/^```\s*/,'').replace(/```$/,'').trim()}
-function normalizeData(raw,q){
- if(typeof raw==='string')return rawToPrettyData(raw,q);
- return {title:raw.title||q,summary:raw.summary||raw.answer||'',entity:raw.entity||'',cards:Array.isArray(raw.cards)?raw.cards:[],quickFacts:Array.isArray(raw.quickFacts)?raw.quickFacts:[],related:Array.isArray(raw.related)?raw.related:[],results:Array.isArray(raw.results)?raw.results:[]}
-}
-function tryParseJSON(s){
- let t=cleanModelText(s);
- try{return JSON.parse(t)}catch{}
- const a=t.indexOf('{'),b=t.lastIndexOf('}');
- if(a>=0&&b>a){try{return JSON.parse(t.slice(a,b+1))}catch{}}
- return null;
-}
-function unescapeLoose(v){
- v=String(v||'').replace(/\\n/g,' ').replace(/\n/g,' ').replace(/\\"/g,'"').replace(/\\/g,'').trim();
- return v.replace(/[,}\]]+$/,'').replace(/^[:\s,]+/,'').trim();
-}
-function extractJsonString(t,key){
- const strict=new RegExp('\"'+key+'\"\\s*:\\s*\"((?:\\\\.|[^\"\\\\])*)\"','s').exec(t);
- if(strict)return unescapeLoose(strict[1]);
- const loose=new RegExp('\"'+key+'\"\\s*:\\s*\"([\\s\\S]*?)(?=\",\\s*\"[a-zA-Z]|\"\\s*[,}]|$)','s').exec(t);
- if(loose)return unescapeLoose(loose[1]);
- return '';
-}
-function stripJsonNoise(t){
- return cleanModelText(t)
-  .replace(/^\s*[\{\[]+/,'')
-  .replace(/[\}\]]+\s*$/,'')
-  .replace(/"(title|summary|quickFacts|cards|related|results|type|subtitle|content|items|label|value|url|snippet)"\s*:/gi,'')
-  .replace(/[\{\}\[\]"]/g,'')
-  .replace(/\s*,\s*/g,' • ')
-  .replace(/\s+/g,' ')
-  .trim();
-}
-function rawToPrettyData(raw,q){
- const t=cleanModelText(raw);
- const parsed=tryParseJSON(t);
- if(parsed)return parsed;
- let title=extractJsonString(t,'title')||q;
- let summary=extractJsonString(t,'summary');
- if(!summary){
-  const plain=stripJsonNoise(t);
-  summary=plain || 'A resposta chegou num formato incompleto, mas foi limpa para não aparecer como JSON.';
- }
- summary=summary.replace(/^\{?\s*title\s*:?/i,'').trim();
- if(summary.length>900)summary=summary.slice(0,900).replace(/\s+\S*$/,'')+'…';
- return {title,summary,cards:[{type:'text',title:'Resposta formatada',subtitle:'Texto limpo automaticamente',content:summary}],quickFacts:[],related:[],results:[]};
-}
-async function fetchImageGallery(query,data){
- const intent=detectIntent(query); if(!['kpop','person','travel','product','current'].includes(intent)&&!data?.entity)return [];
- const seed=(data?.entity||extractEntityHint(query)||data?.title||query).trim(); if(!seed)return [];
- const imgs=[]; const seen=new Set();
- const add=(url,title='Imagem')=>{if(!url||seen.has(url))return;seen.add(url);imgs.push({url,title})};
- const prev=await fetchWikiPreview(seed).catch(()=>null); if(prev?.image)add(prev.image,prev.title||seed);
- try{
-  const url='https://commons.wikimedia.org/w/api.php?origin=*&action=query&generator=search&gsrsearch='+encodeURIComponent(seed)+'&gsrnamespace=6&gsrlimit=8&prop=imageinfo&iiprop=url|mime&iiurlwidth=900&format=json';
-  const res=await fetch(url); const json=await res.json(); const pages=json?.query?.pages?Object.values(json.query.pages):[];
-  pages.forEach(p=>{const info=p.imageinfo?.[0]; if(info?.mime&&info.mime.startsWith('image/')&&!/svg/i.test(info.mime)) add(info.thumburl||info.url,p.title||seed)});
- }catch(e){}
- return imgs.slice(0,6);
-}
-function makeGalleryHtml(images){if(!images?.length)return '<div class="miniText">Sem imagens automáticas disponíveis para esta pesquisa.</div>';return `<div class="gallery">${images.slice(0,6).map(im=>`<img class="galleryImg" src="${escapeHtml(im.url)}" alt="${escapeHtml(im.title||'Imagem')}">`).join('')}</div>`}
-function makeFactsHtml(facts){if(!facts?.length)return '<div class="miniText">Sem factos rápidos nesta resposta.</div>';return `<div class="factGrid">${facts.slice(0,8).map(f=>`<div class="fact"><b>${escapeHtml(f.label||f.title||'Info')}</b><span>${escapeHtml(f.value||f.text||'')}</span></div>`).join('')}</div>`}
-function makeRelatedHtml(items){if(!items?.length)return '<div class="miniText">Faz outra pesquisa para receber sugestões relacionadas.</div>';return `<div class="factGrid">${items.slice(0,6).map(x=>`<button class="hist relatedBtn">${escapeHtml(x)}</button>`).join('')}</div>`}
-function makeTabsCard(d,images){return `<article class="card"><div class="tabs"><button class="tabBtn active" data-tab="overview">Visão geral</button><button class="tabBtn" data-tab="facts">Factos</button><button class="tabBtn" data-tab="images">Imagens</button><button class="tabBtn" data-tab="related">Related</button></div><div class="cardBody"><div class="tabPanel active" data-panel="overview"><div class="summary">${escapeHtml(d.summary||'Sem resumo.')}</div><div class="inlineActions"><button class="miniAction" onclick="retryLast()">Atualizar</button><button class="miniAction" onclick="goBack()">Voltar</button></div></div><div class="tabPanel" data-panel="facts">${makeFactsHtml(d.quickFacts)}</div><div class="tabPanel" data-panel="images">${makeGalleryHtml(images)}</div><div class="tabPanel" data-panel="related">${makeRelatedHtml(d.related)}</div></div></article>`}
-function makeDiscoverCard(d,intent,images){const tiles=[];(d.results||[]).slice(0,2).forEach(r=>tiles.push({k:'Resultado',t:r.title||'Resultado',x:r.snippet||r.text||''}));(d.cards||[]).slice(0,2).forEach(c=>tiles.push({k:c.type||'Cartão',t:c.title||'Detalhe',x:c.content||(Array.isArray(c.items)?c.items.slice(0,2).join(' • '):'')}));(d.related||[]).slice(0,2).forEach(r=>tiles.push({k:'Explorar',t:r,x:'Pesquisa sugerida para continuar.'}));if(!tiles.length)return '';return `<article class="card"><div class="cardHead"><div><div class="cardTitle">Discover</div><div class="cardSub">Ideias rápidas para explorar</div></div></div><div class="cardBody"><div class="discoverGrid">${tiles.slice(0,4).map(tile=>`<div class="discoverTile"><div class="discoverKicker">${escapeHtml(tile.k)}</div><div class="discoverTitle">${escapeHtml(tile.t)}</div><div class="discoverText">${escapeHtml(String(tile.x||'').slice(0,160))}</div></div>`).join('')}</div></div></article>`}
-function activateTabs(){document.querySelectorAll('.tabs').forEach(box=>{const card=box.closest('.card');box.querySelectorAll('.tabBtn').forEach(btn=>{btn.onclick=()=>{box.querySelectorAll('.tabBtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');card.querySelectorAll('.tabPanel').forEach(p=>p.classList.toggle('active',p.dataset.panel===btn.dataset.tab));}})})}
-async function renderData(data,cached=false){const query=queryLine.textContent.replace('Pesquisa: ','');const intent=detectIntent(query);const labels=sidebarLabels(intent);const d=normalizeData(data,query);const images=await fetchImageGallery(query,d);let cardsHtml='';
- cardsHtml+=`<div class="contextBar"><span class="contextPill">🧠 ${escapeHtml(niceIntentName(intent))}</span><span class="contextPill">📅 ${escapeHtml(getTodayLong())}</span>${cached?'<span class="contextPill">⚡ Em cache</span>':''}</div>`;
- cardsHtml+=`<article class="card answerCard"><div class="cardHead"><div><div class="cardTitle">${escapeHtml(d.title||'Resposta')}</div><div class="cardSub">${cached?'Resposta instantânea em cache':'Experiência adaptada à pesquisa'}</div></div></div><div class="cardBody"><div class="summary">${escapeHtml(d.summary||'Sem resumo.')}</div><div class="badgeRow"><span class="badge aiBadge">Johnny Answers</span><span class="badge">v17 Discover</span><span class="badge">Layout variável</span></div></div></article>`;
- cardsHtml+=makeTabsCard(d,images);
- (d.cards||[]).slice(0,6).forEach(c=>{const type=c.type||'text';let body='';if(Array.isArray(c.items)&&c.items.length){body=`<ul class="list">${c.items.map(i=>`<li>${escapeHtml(typeof i==='string'?i:(i.text||i.title||JSON.stringify(i)))}</li>`).join('')}</ul>`}else if(Array.isArray(c.steps)&&c.steps.length){body=`<ol class="list">${c.steps.map(i=>`<li>${escapeHtml(i)}</li>`).join('')}</ol>`}else body=`<div class="answerText">${escapeHtml(c.content||c.text||'')}</div>`;cardsHtml+=`<article class="card"><div class="cardHead"><div><div class="cardTitle">${escapeHtml(c.title||labelFor(type))}</div><div class="cardSub">${escapeHtml(c.subtitle||labelFor(type))}</div></div></div><div class="cardBody">${body}</div></article>`});
- cardsHtml+=makeDiscoverCard(d,intent,images);
- if((d.results||[]).length){cardsHtml+=`<article class="card"><div class="cardHead"><div><div class="cardTitle">Descobrir mais</div><div class="cardSub">Resultados rápidos formatados</div></div></div>${d.results.slice(0,4).map(r=>`<div class="resultItem"><div class="resultTitle">${escapeHtml(r.title||'Resultado')}</div><div class="resultUrl">${escapeHtml(r.url||'answers.johnny')}</div><div class="resultSnippet">${escapeHtml(r.snippet||r.text||'')}</div></div>`).join('')}</article>`}
- left.innerHTML=cardsHtml;
- let side='';
- if(images.length){side+=`<article class="card"><div class="cardHead"><div><div class="cardTitle">${escapeHtml(labels[2])}</div><div class="cardSub">Galeria contextual</div></div></div><div class="cardBody"><img class="galleryHero" src="${escapeHtml(images[0].url)}" alt="${escapeHtml(images[0].title||d.title||query)}"><div class="panelList">${images.slice(1,5).map((im,i)=>`<span class="panelTag">Imagem ${i+2}</span>`).join('')}</div></div></article>`}
- if((d.quickFacts||[]).length){side+=`<article class="card"><div class="cardHead"><div><div class="cardTitle">${escapeHtml(labels[0])}</div><div class="cardSub">Leitura rápida</div></div></div><div class="cardBody">${makeFactsHtml(d.quickFacts)}</div></article>`}
- if((d.related||[]).length){side+=`<article class="card"><div class="cardHead"><div><div class="cardTitle">${escapeHtml(labels[1])}</div><div class="cardSub">Sugestões inteligentes</div></div></div><div class="cardBody">${makeRelatedHtml(d.related)}</div></article>`}
- if(!side){side=`<article class="card"><div class="cardHead"><div><div class="cardTitle">${escapeHtml(labels[2])}</div><div class="cardSub">Organizado automaticamente</div></div></div><div class="cardBody"><div class="factGrid"><div class="fact"><b>Tipo</b><span>${escapeHtml(niceIntentName(intent))}</span></div><div class="fact"><b>Visual</b><span>Tabs, Discover e cards variáveis</span></div><div class="fact"><b>Hoje</b><span>${escapeHtml(getTodayLong())}</span></div></div></div></article>`}
- right.innerHTML=side;document.querySelectorAll('.relatedBtn').forEach(b=>b.onclick=()=>runSearch(b.textContent));activateTabs();saveGood()}
-function labelFor(t){return ({steps:'Passos',list:'Lista',facts:'Factos',comparison:'Comparação',ideas:'Ideias',warning:'Atenção',text:'Detalhes'})[t]||'Cartão'}
-function buildSystemPrompt(query=''){const today=getTodayLong();return `És o motor escondido do Johnny Answers. Hoje é ${today}. Usa esta data para interpretar pedidos como hoje, esta semana, este mês, este ano ou atual. Responde SEMPRE em português de Portugal. Nunca reveles modelo/provider/sistema. Devolve APENAS JSON válido, sem markdown e sem texto fora do JSON. Mantém os textos curtos para evitar truncar. Neste formato: {"title":"título curto","summary":"resposta principal em 2-5 frases","entity":"nome da pessoa/grupo/produto/lugar quando existir","quickFacts":[{"label":"...","value":"..."}],"cards":[{"type":"text|list|steps|ideas|warning|comparison","title":"...","subtitle":"...","content":"...","items":["..."]}],"related":["pesquisa sugerida 1","pesquisa sugerida 2"],"results":[{"title":"...","url":"johnny.answers","snippet":"..."}]}. Identifica o melhor use case antes de responder e cria cards diferentes consoante a pesquisa. Varia a estrutura de forma útil em vez de repetires sempre o mesmo layout. Quando o tema tiver entidade visual, preenche entity com o nome exato para a app conseguir mostrar imagens.  estudo -> resumo, explicação, passos, mini exercícios; pessoa/artista/grupo K-pop -> visão geral, carreira, membros/eras/estilo quando fizer sentido, factos; código -> erro, causa, correção e exemplo; produto -> decisão final, prós/contras, ranking e alternativa; saúde/pele/fitness -> segurança, passos e cuidados; design/criação -> conceito, copy, layout e variações; viagem -> plano, orçamento e checklist; pergunta simples -> resposta curta + detalhes. Se não souberes, sê honesto.`}
-async function askGeminiModel(model,q,signal){
- const body={
-  systemInstruction:{parts:[{text:buildSystemPrompt(q)}]},
-  contents:[{role:'user',parts:[{text:q}]}],
-  generationConfig:{temperature:.35,maxOutputTokens:2400,responseMimeType:'application/json'}
- };
- const url=`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model.id)}:generateContent`;
- const res=await fetch(url,{method:'POST',headers:{'x-goog-api-key':getGeminiKey(),'Content-Type':'application/json'},body:JSON.stringify(body),signal});
- let text=await res.text(),payload=null;try{payload=text?JSON.parse(text):null}catch{}
- const apiMsg=payload?.error?.message||text||String(res.status);
- if(!res.ok){const err=new Error(model.name+': '+apiMsg);err.kind=isFreeModelLimit(apiMsg)?'FREE_LIMIT':(isProviderBusy(apiMsg)?'PROVIDER':'OTHER');throw err}
- const content=(payload?.candidates?.[0]?.content?.parts||[]).map(p=>p.text||'').join('').trim();
- if(!content){const err=new Error(model.name+': resposta vazia');err.kind='OTHER';throw err}
- return content;
-}
-async function askOpenRouterModel(model,q,signal){const body={model:model.id,temperature:.35,max_tokens:1900,messages:[{role:'system',content:buildSystemPrompt(q)},{role:'user',content:q}]};const res=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Authorization':'Bearer '+getKey(),'Content-Type':'application/json','HTTP-Referer':location.href,'X-Title':'Johnny Answers'},body:JSON.stringify(body),signal});let text=await res.text(),payload=null;try{payload=text?JSON.parse(text):null}catch{}const apiMsg=payload?.error?.message||payload?.error?.metadata?.raw||text||String(res.status);if(!res.ok){const err=new Error(model.name+': '+apiMsg);err.kind=isFreeModelLimit(apiMsg)?'FREE_LIMIT':(isProviderBusy(apiMsg)?'PROVIDER':'OTHER');throw err}const content=payload?.choices?.[0]?.message?.content||'';if(!content.trim()){const err=new Error(model.name+': resposta vazia');err.kind='OTHER';throw err}return content}
-async function ask(q){
- const errors=[];
- if(getGeminiKey()){
-  for(const model of GEMINI_MODELS.slice(0,MAX_GEMINI_ATTEMPTS)){
-   const ctrl=new AbortController();const timer=setTimeout(()=>ctrl.abort(),24000);
-   try{const out=await askGeminiModel(model,q,ctrl.signal);clearTimeout(timer);return out}catch(e){clearTimeout(timer);const msg=e?.name==='AbortError'?model.name+': demorou demasiado':(e?.message||String(e));errors.push(msg);if(e?.kind==='FREE_LIMIT'||isFreeModelLimit(msg))break;}
-  }
- }
- if(getKey()){
-  const chain=(await getOpenRouterModelChain()).slice(0,MAX_OPENROUTER_ATTEMPTS);
-  for(const model of chain){const ctrl=new AbortController();const timer=setTimeout(()=>ctrl.abort(),22000);try{const out=await askOpenRouterModel(model,q,ctrl.signal);clearTimeout(timer);return out}catch(e){clearTimeout(timer);const msg=e?.name==='AbortError'?model.name+': demorou demasiado':(e?.message||String(e));errors.push(msg.replace(/This model is unavailable for free[^|]*/i,'indisponível grátis'));if(e?.kind==='FREE_LIMIT'||isFreeModelLimit(msg))break;}}
- }
- const err=new Error(errors.join(' | ')||'Sem chave Gemini/OpenRouter configurada');err.kind=isFreeModelLimit(err.message)?'FREE_LIMIT':'PROVIDER';throw err;
-}
-function renderFriendlyError(e){
- const msg=String(e?.message||e||'');
- const isLimit=(e?.kind==='FREE_LIMIT')||isFreeModelLimit(msg);
- localStorage.setItem('johnny_last_error',String(e?.details||msg));
- if(isLimit){
-  left.innerHTML=`<article class="card answerCard"><div class="cardHead"><div><div class="cardTitle">Limite diário atingido</div><div class="cardSub">O motor grátis chegou ao limite hoje</div></div></div><div class="cardBody"><div class="summary">A app está bem. O problema é limite/quota da API grátis. Para não queimar ainda mais pedidos, parei o fallback automático.</div><div class="errorActions"><button class="backBtn" onclick="goBack()">Voltar à resposta anterior</button><button class="retryBtn" onclick="retryLast()">Tentar outra vez</button><button class="backBtn" onclick="openSettings()">Ver erro técnico</button></div><div class="badgeRow"><span class="badge aiBadge">Proteção anti-desperdício</span><span class="badge">Sem Netlify Functions</span></div></div></article>`;
-  right.innerHTML=`<article class="card"><div class="cardHead"><div><div class="cardTitle">Como resolver</div><div class="cardSub">Opção mais estável</div></div></div><div class="cardBody"><div class="factGrid"><div class="fact"><b>Recomendado</b><span>Usa uma Gemini API key grátis como motor principal.</span></div><div class="fact"><b>Fallback</b><span>Mantém OpenRouter só como segunda opção.</span></div><div class="fact"><b>Importante</b><span>Retry em loop pode gastar tentativas.</span></div></div></div></article>`;
-  return;
- }
- left.innerHTML=`<article class="card answerCard"><div class="cardHead"><div><div class="cardTitle">Não consegui responder</div><div class="cardSub">Podes tentar outra vez ou voltar atrás</div></div></div><div class="cardBody"><div class="summary">A ligação à API falhou agora. Pode ser quota, modelo temporariamente indisponível, key errada ou falha de rede.</div><div class="errorActions"><button class="retryBtn" onclick="retryLast()">Tentar novamente</button><button class="backBtn" onclick="goBack()">Voltar à resposta anterior</button><button class="backBtn" onclick="openSettings()">Ver erro técnico</button></div><div class="badgeRow"><span class="badge">Sem Netlify Functions</span></div></div></article>`;
- right.innerHTML=`<article class="card"><div class="cardHead"><div><div class="cardTitle">Checklist rápida</div><div class="cardSub">O que ver</div></div></div><div class="cardBody"><div class="factGrid"><div class="fact"><b>Gemini Key</b><span>Deve começar normalmente por AIza.</span></div><div class="fact"><b>OpenRouter</b><span>É só fallback; pode falhar por provider/limite.</span></div></div></div></article>`;
-}
-async function runSearch(q,force=false){q=(q||'').trim();if(!q)return;lastQuery=q;if(!getGeminiKey()&&!getKey()){openSettings();return}startUI(q);addHistory(q);const cached=force?null:readCache(q);if(cached?.data){await renderData(cached.data,true);return}try{const raw=await ask(q);const json=tryParseJSON(raw);const data=json||rawToPrettyData(raw,q);writeCache(q,data);await renderData(data,false)}catch(e){renderFriendlyError(e)}}
-$('#searchForm').onsubmit=e=>{e.preventDefault();runSearch($('#query').value)};$('#topForm').onsubmit=e=>{e.preventDefault();runSearch($('#topQuery').value)};updateKey();renderHistory();
+const keyGem='johnny_gemini_key_v1', keyOR='johnny_openrouter_key_v1', histKey='johnny_answers_history_v1', cacheKeyName='johnny_answers_cache_v18';
+const GEMINI_MODELS=[{id:'gemini-2.0-flash',name:'Gemini Flash'},{id:'gemini-1.5-flash',name:'Gemini 1.5 Flash'}];
+const OPENROUTER_MODELS=[{id:'qwen/qwen3-next-80b-a3b-instruct:free',name:'Qwen3 Next'},{id:'meta-llama/llama-3.3-70b-instruct:free',name:'Llama 3.3 70B'},{id:'qwen/qwen3-coder:free',name:'Qwen3 Coder'}];
+let lastQuery='', lastGood=null, aborter=null, liveText='';
+function today(){return new Date().toLocaleDateString('pt-PT',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}
+function getGem(){return localStorage.getItem(keyGem)||''} function getOR(){return localStorage.getItem(keyOR)||''}
+function updateKeyUi(){document.body.classList.toggle('noKey',!(getGem()||getOR()));$('#geminiKey').value=getGem()?'••••••••••••••••':'';$('#openRouterKey').value=getOR()?'••••••••••••••••':''}
+function openSettings(){const er=localStorage.getItem('johnny_last_error')||'';$('#techError').style.display=er?'block':'none';$('#techError').textContent=er?'Erro técnico: '+er.slice(0,900):'';$('#drawer').classList.add('show')}
+function closeSettings(){$('#drawer').classList.remove('show')} window.openSettings=openSettings;
+$('#settingsBtn').onclick=openSettings;$('#keyHint').onclick=openSettings;$('#shade').onclick=closeSettings;$('#closeBtn').onclick=closeSettings;
+$('#saveKey').onclick=()=>{const g=$('#geminiKey').value.trim(), o=$('#openRouterKey').value.trim();if(g&&!g.includes('•'))localStorage.setItem(keyGem,g);if(o&&!o.includes('•'))localStorage.setItem(keyOR,o);updateKeyUi();closeSettings()};
+$('#deleteKey').onclick=()=>{localStorage.removeItem(keyGem);localStorage.removeItem(keyOR);updateKeyUi()};
+function esc(s=''){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function autoGrow(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,150)+'px'}['query','topQuery'].forEach(id=>$('#'+id).addEventListener('input',e=>autoGrow(e.target)));
+document.querySelectorAll('.chip,.use').forEach(b=>b.onclick=()=>{const v=b.dataset.prompt||b.textContent.trim();$('#query').value=v;autoGrow($('#query'));$('#query').focus()});
+function intent(q=''){const s=q.toLowerCase();if(/kpop|k-pop|idol|membros|comeback|ateez|bts|blackpink|twice|stray kids|newjeans|ive|aespa|seventeen|one pact|zerobaseone|enha|enhypen/.test(s))return'kpop';if(/telem[oó]vel|smartphone|comprar|melhor|pre[çc]o|produto|review|tv|tablet|port[áa]til/.test(s))return'product';if(/erro|bug|c[oó]digo|kotlin|java|python|javascript|html|css|api|github/.test(s))return'code';if(/resumo|explica|teste|exame|estudar|mat[eé]ria|exerc[ií]cio/.test(s))return'study';if(/viagem|roteiro|hotel|voo|coreia|praia|cidade/.test(s))return'travel';if(/design|branding|logo|an[úu]ncio|copy|ui|ux|site/.test(s))return'design';if(/pele|acne|sa[úu]de|treino|gin[aá]sio|dieta/.test(s))return'health';return'general'}
+function intentName(i){return({kpop:'K-pop / artista',product:'Compra inteligente',code:'Código',study:'Estudo',travel:'Viagem',design:'Criação',health:'Saúde / fitness',general:'Pesquisa visual'})[i]||'Pesquisa'}
+function addHistory(q){let h=[];try{h=JSON.parse(localStorage.getItem(histKey)||'[]')}catch{}h=[q,...h.filter(x=>x!==q)].slice(0,12);localStorage.setItem(histKey,JSON.stringify(h));renderHistory()}
+function renderHistory(){let h=[];try{h=JSON.parse(localStorage.getItem(histKey)||'[]')}catch{}$('#history').innerHTML=h.length?h.map(x=>`<button class="hist">${esc(x)}</button>`).join(''):'<div class="mini">Sem pesquisas ainda.</div>';document.querySelectorAll('.hist').forEach(b=>b.onclick=()=>{closeSettings();runSearch(b.textContent)})}
+function cacheId(q){return q.trim().toLowerCase()}function readCache(q){try{return JSON.parse(localStorage.getItem(cacheKeyName)||'{}')[cacheId(q)]}catch{return null}}function writeCache(q,data){try{const c=JSON.parse(localStorage.getItem(cacheKeyName)||'{}');c[cacheId(q)]={data,t:Date.now()};localStorage.setItem(cacheKeyName,JSON.stringify(c))}catch{}}
+function md(s=''){let t=esc(s);t=t.replace(/```([\s\S]*?)```/g,(m,c)=>`<pre><code>${c}</code></pre>`);t=t.replace(/^### (.*)$/gm,'<h3>$1</h3>').replace(/^## (.*)$/gm,'<h2>$1</h2>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code>$1</code>');const lines=t.split('\n');let out='',inList=false;for(const line of lines){if(/^\s*[-•]\s+/.test(line)){if(!inList){out+='<ul>';inList=true}out+='<li>'+line.replace(/^\s*[-•]\s+/,'')+'</li>'}else{if(inList){out+='</ul>';inList=false}if(line.trim())out+='<p>'+line+'</p>'}}if(inList)out+='</ul>';return out}
+function startUI(q){const it=intent(q);document.body.classList.add('compact');$('#main').classList.add('show');$('#queryLine').textContent='Pesquisa: '+q;$('#topQuery').value=q;liveText='';$('#left').innerHTML=`<div class="context"><span class="tag">🧠 ${esc(intentName(it))}</span><span class="tag">📅 ${esc(today())}</span><span class="tag">⚡ streaming</span></div><article class="card"><div class="head"><div><div class="title">Resposta ao vivo</div><div class="sub">Aparece enquanto a IA escreve — sem esperar pelo fim.</div></div><div class="status"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div><div class="body"><div id="liveAnswer" class="answer liveCursor"></div></div></article><article class="card" id="afterCard" style="display:none"><div class="head"><div><div class="title">Resumo em cartões</div><div class="sub">Criado a partir da resposta final.</div></div></div><div class="body" id="smartCards"></div></article>`;renderSide(q,{images:[],links:realLinks(q),discover:discover(q),wiki:null},true);window.scrollTo({top:0,behavior:'smooth'})}
+function saveGood(){lastGood={left:$('#left').innerHTML,right:$('#right').innerHTML,query:$('#queryLine').textContent,top:$('#topQuery').value}}function goBack(){if(!lastGood){document.body.classList.remove('compact');$('#main').classList.remove('show');return}$('#left').innerHTML=lastGood.left;$('#right').innerHTML=lastGood.right;$('#queryLine').textContent=lastGood.query;$('#topQuery').value=lastGood.top}function retryLast(){if(lastQuery)runSearch(lastQuery,true)}window.goBack=goBack;window.retryLast=retryLast;
+function setLive(t){liveText=t;$('#liveAnswer').innerHTML=md(t||'A começar...')}
+function finalCards(text){const chunks=text.split(/\n(?=##\s+)/).filter(x=>x.trim()).slice(0,4);if(!chunks.length)return;$('#afterCard').style.display='block';$('#smartCards').innerHTML=chunks.map((c,i)=>`<div class="fact" style="margin-bottom:10px"><b>${i===0?'Ideia principal':'Secção '+(i+1)}</b><span>${esc(c.replace(/^##\s*/,'').slice(0,220))}${c.length>220?'…':''}</span></div>`).join('')}
+function systemPrompt(q){const it=intent(q);return `Hoje é ${today()}. Responde em português de Portugal. És o Johnny Answers, uma pesquisa visual diferente do Google: primeiro dá uma resposta útil e direta, depois organiza por secções. Não digas que és um modelo. Não inventes links nem fontes. Quando falares de factos atuais, avisa se podes estar desatualizado. Tipo de pesquisa detetado: ${it}. Usa este estilo:
+- Começa com uma resposta direta em 2-4 frases.
+- Depois cria secções com títulos markdown começados por ##.
+- Varia as secções consoante o tipo: K-pop/artistas -> Visão geral, Membros/estilo/eras, O que ver/ouvir primeiro; produto -> Decisão final, Ranking/alternativas, Cuidados; código -> Erro, Correção, Exemplo; estudo -> Explicação simples, Passos, Mini-teste; design -> Conceito, Layout, Copy.
+- Sê prático e bonito, sem JSON.`}
+async function streamGemini(model,q,signal,onChunk){const body={systemInstruction:{parts:[{text:systemPrompt(q)}]},contents:[{role:'user',parts:[{text:q}]}],generationConfig:{temperature:.45,maxOutputTokens:2600}};const url=`https://generativelanguage.googleapis.com/v1beta/models/${model.id}:streamGenerateContent?alt=sse&key=${encodeURIComponent(getGem())}`;const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal});if(!res.ok){let tx=await res.text();throw new Error(model.name+': '+tx.slice(0,300))}const reader=res.body.getReader();const dec=new TextDecoder();let buf='',full='';while(true){const {done,value}=await reader.read();if(done)break;buf+=dec.decode(value,{stream:true});const parts=buf.split('\n\n');buf=parts.pop();for(const ev of parts){for(const line of ev.split('\n')){if(line.startsWith('data: ')){try{const data=JSON.parse(line.slice(6));const txt=(data.candidates?.[0]?.content?.parts||[]).map(p=>p.text||'').join('');if(txt){full+=txt;onChunk(full)}}catch{}}}}}return full}
+async function normalGemini(model,q,signal){const body={systemInstruction:{parts:[{text:systemPrompt(q)}]},contents:[{role:'user',parts:[{text:q}]}],generationConfig:{temperature:.45,maxOutputTokens:2600}};const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model.id}:generateContent?key=${encodeURIComponent(getGem())}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal});const payload=await res.json().catch(()=>null);if(!res.ok)throw new Error(model.name+': '+(payload?.error?.message||res.status));return (payload?.candidates?.[0]?.content?.parts||[]).map(p=>p.text||'').join('').trim()}
+async function streamOpenRouter(model,q,signal,onChunk){const res=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+getOR(),'Content-Type':'application/json','HTTP-Referer':location.href,'X-Title':'Johnny Answers'},body:JSON.stringify({model:model.id,stream:true,temperature:.45,max_tokens:2400,messages:[{role:'system',content:systemPrompt(q)},{role:'user',content:q}]}),signal});if(!res.ok){let tx=await res.text();throw new Error(model.name+': '+tx.slice(0,300))}const reader=res.body.getReader();const dec=new TextDecoder();let buf='',full='';while(true){const {done,value}=await reader.read();if(done)break;buf+=dec.decode(value,{stream:true});const lines=buf.split('\n');buf=lines.pop();for(const line of lines){if(line.startsWith('data: ')){const raw=line.slice(6).trim();if(raw==='[DONE]')return full;try{const data=JSON.parse(raw);const txt=data.choices?.[0]?.delta?.content||'';if(txt){full+=txt;onChunk(full)}}catch{}}}}return full}
+async function ask(q,onChunk){const errs=[];if(getGem()){for(const m of GEMINI_MODELS){try{return await streamGemini(m,q,aborter.signal,onChunk)}catch(e){errs.push(e.message);try{const out=await normalGemini(m,q,aborter.signal);onChunk(out);return out}catch(e2){errs.push(e2.message)}}}}if(getOR()){for(const m of OPENROUTER_MODELS){try{return await streamOpenRouter(m,q,aborter.signal,onChunk)}catch(e){errs.push(e.message)}}}throw new Error(errs.join(' | ')||'Sem Gemini/OpenRouter API Key configurada')}
+function entityHint(q){return q.replace(/^(quem é|quem e|fala-me de|fala me de|sobre|pesquisa|o que é|o que e)\s+/i,'').trim()}
+async function wikiSearch(q){for(const lang of ['pt','en']){try{const url=`https://${lang}.wikipedia.org/w/api.php?origin=*&action=query&generator=search&gsrsearch=${encodeURIComponent(q)}&gsrlimit=1&prop=pageimages|extracts|info&inprop=url&piprop=thumbnail&pithumbsize=900&exintro=1&explaintext=1&exsentences=2&format=json`;const data=await fetch(url).then(r=>r.json());const pages=data?.query?.pages?Object.values(data.query.pages):[];if(pages[0])return {title:pages[0].title,url:pages[0].fullurl,img:pages[0].thumbnail?.source||'',desc:pages[0].extract||''}}catch{}}return null}
+async function commonsImages(q){try{const data=await fetch(`https://commons.wikimedia.org/w/api.php?origin=*&action=query&generator=search&gsrsearch=${encodeURIComponent(q)}&gsrnamespace=6&gsrlimit=8&prop=imageinfo&iiprop=url|mime&iiurlwidth=600&format=json`).then(r=>r.json());const pages=data?.query?.pages?Object.values(data.query.pages):[];return pages.map(p=>({title:(p.title||'').replace(/^File:/,''),url:p.imageinfo?.[0]?.thumburl||p.imageinfo?.[0]?.url,source:p.imageinfo?.[0]?.descriptionurl})).filter(x=>x.url&&/\.(jpg|jpeg|png|webp)/i.test(x.url.split('?')[0])).slice(0,6)}catch{return[]}}
+async function media(q){const seed=entityHint(q)||q;const [wiki,imgs]=await Promise.all([wikiSearch(seed),commonsImages(seed)]);let images=[];if(wiki?.img)images.push({title:wiki.title,url:wiki.img,source:wiki.url});images=[...images,...imgs].filter((x,i,a)=>a.findIndex(y=>y.url===x.url)===i).slice(0,6);return{wiki,images}}
+function realLinks(q){const e=encodeURIComponent(q), it=intent(q);const links=[];links.push({name:'Google',desc:'Pesquisar na web',url:`https://www.google.com/search?q=${e}`});links.push({name:'Wikipedia',desc:'Artigo/visão geral se existir',url:`https://pt.wikipedia.org/w/index.php?search=${e}`});if(it==='kpop'||it==='general')links.push({name:'YouTube',desc:'Vídeos, performances e explicações',url:`https://www.youtube.com/results?search_query=${e}`});if(it==='kpop')links.push({name:'Spotify',desc:'Músicas e discografia',url:`https://open.spotify.com/search/${e}`});if(it==='product'){links.push({name:'KuantoKusta',desc:'Comparar preços em Portugal',url:`https://www.kuantokusta.pt/search?q=${e}`});links.push({name:'Worten',desc:'Ver opções em Portugal',url:`https://www.worten.pt/search?query=${e}`});links.push({name:'YouTube Reviews',desc:'Reviews em vídeo',url:`https://www.youtube.com/results?search_query=${e}%20review`})}if(it==='code'){links.push({name:'Stack Overflow',desc:'Perguntas técnicas reais',url:`https://stackoverflow.com/search?q=${e}`});links.push({name:'GitHub',desc:'Código e exemplos',url:`https://github.com/search?q=${e}`});links.push({name:'MDN',desc:'Docs web',url:`https://developer.mozilla.org/search?q=${e}`})}links.push({name:'Google News',desc:'Notícias recentes',url:`https://news.google.com/search?q=${e}&hl=pt-PT&gl=PT&ceid=PT%3Apt-150`});return links.slice(0,7)}
+function discover(q){const it=intent(q);const base=entityHint(q)||q;const map={kpop:[`${base} melhores músicas`,`${base} membros`,`${base} comeback recente`,`${base} estilo outfits`],product:[`${base} vs alternativas`,`${base} preço Portugal`,`${base} review`,`${base} vale a pena`],code:[`${base} exemplo simples`,`${base} erro comum`,`${base} documentação oficial`,`${base} stack overflow`],study:[`${base} resumo fácil`,`${base} exercícios resolvidos`,`${base} mapa mental`,`${base} exemplo prático`],design:[`${base} moodboard`,`${base} referências visuais`,`${base} copy premium`,`${base} layout app`],travel:[`${base} roteiro barato`,`${base} melhores zonas`,`${base} orçamento`,`${base} o que levar`],health:[`${base} cuidados`,`${base} riscos`,`${base} rotina simples`,`${base} evidência`],general:[`${base} explicado simples`,`${base} exemplos`,`${base} prós e contras`,`${base} melhores fontes`]};return map[it]||map.general}
+function renderSide(q,data={},loading=false){const links=data.links||realLinks(q), images=data.images||[], wiki=data.wiki, dis=data.discover||discover(q);$('#right').innerHTML=`<article class="card"><div class="tabs"><button class="tab active" data-tab="facts">Factos</button><button class="tab" data-tab="images">Imagens</button><button class="tab" data-tab="links">Sites reais</button><button class="tab" data-tab="discover">Discover</button></div><div class="body"><div class="tabPane active" id="pane-facts"><div class="factGrid"><div class="fact"><b>Tipo</b><span>${esc(intentName(intent(q)))}</span></div><div class="fact"><b>Data usada</b><span>${esc(today())}</span></div>${wiki?`<div class="fact"><b>${esc(wiki.title)}</b><span>${esc(wiki.desc||'Resumo da Wikipedia encontrado.')}</span></div>`:`<div class="fact"><b>Estado</b><span>${loading?'A procurar contexto visual...':'Sem preview externo encontrado.'}</span></div>`}</div></div><div class="tabPane" id="pane-images">${images.length?`<div class="gallery">${images.map(im=>`<a class="imgCard" href="${esc(im.source||im.url)}" target="_blank" rel="noopener"><img src="${esc(im.url)}" alt="${esc(im.title||q)}"><div>${esc((im.title||'Imagem').slice(0,55))}</div></a>`).join('')}</div>`:`<div class="mini">Ainda não encontrei imagens abertas para esta pesquisa. Tenta um nome mais específico, tipo “ATEEZ” ou “Karol G”.</div>`}</div><div class="tabPane" id="pane-links"><div class="linkList">${links.map(l=>`<a class="link" href="${esc(l.url)}" target="_blank" rel="noopener"><div><strong>${esc(l.name)}</strong><span>${esc(l.desc)}</span></div><div class="arrow">↗</div></a>`).join('')}</div></div><div class="tabPane" id="pane-discover"><div class="discover">${dis.map(x=>`<button type="button">${esc(x)}</button>`).join('')}</div></div></div></article>`;document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tabPane').forEach(x=>x.classList.remove('active'));t.classList.add('active');$('#pane-'+t.dataset.tab).classList.add('active')});document.querySelectorAll('.discover button').forEach(b=>b.onclick=()=>runSearch(b.textContent))}
+function renderError(e){localStorage.setItem('johnny_last_error',String(e.message||e));$('#left').innerHTML=`<article class="card"><div class="head"><div><div class="title">Não consegui responder</div><div class="sub">Podes tentar novamente ou voltar atrás.</div></div></div><div class="body"><p class="mini">Pode ser quota, key, rede ou provider temporariamente em baixo.</p><div class="errorActions"><button class="primary" onclick="retryLast()">Tentar outra vez</button><button class="secondary" onclick="goBack()">Voltar atrás</button><button class="secondary" onclick="openSettings()">Ver erro técnico</button></div></div></article>`}
+async function runSearch(q,force=false){q=(q||'').trim();if(!q)return;if(!(getGem()||getOR())){openSettings();return}if(aborter)aborter.abort();aborter=new AbortController();lastQuery=q;startUI(q);addHistory(q);const cached=force?null:readCache(q);if(cached?.answer){setLive(cached.answer);finalCards(cached.answer);renderSide(q,cached.side||{links:realLinks(q),discover:discover(q)});saveGood();return}const mediaPromise=media(q).then(m=>{renderSide(q,{...m,links:realLinks(q),discover:discover(q)},false);return m}).catch(()=>({images:[],wiki:null}));try{const out=await ask(q,setLive);const side=await mediaPromise;setLive(out);finalCards(out);writeCache(q,{answer:out,side:{...side,links:realLinks(q),discover:discover(q)}});saveGood()}catch(e){renderError(e)}}
+$('#searchForm').onsubmit=e=>{e.preventDefault();runSearch($('#query').value)};$('#topForm').onsubmit=e=>{e.preventDefault();runSearch($('#topQuery').value)};updateKeyUi();renderHistory();
 </script>
 </body>
 </html>
